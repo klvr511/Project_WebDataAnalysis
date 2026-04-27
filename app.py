@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for # type: ignore
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 import os
 
@@ -18,7 +18,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -33,7 +32,15 @@ def contact():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    try:
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM suggestions")
+        data = cursor.fetchall()
+        conn.close()
+        return render_template('dashboard.html', suggestions=data)
+    except Exception as e:
+        return f"حدث خطأ أثناء تحميل لوحة التحكم: {e}"
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -52,8 +59,9 @@ def submit():
             return "<h1>تم استلام فكرتك بنجاح! شكراً لك.</h1><a href='/'>العودة للرئيسية</a>"
         except Exception as e:
             return f"حدث خطأ أثناء حفظ البيانات: {e}"
+
 if __name__ == '__main__':
-    init_db()
-    import os
+    init_db()  
+    
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
