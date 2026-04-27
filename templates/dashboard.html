@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHCEQQGHGR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RHCEQQGHGR');
+</script>
+
     <meta charset="UTF-8">
-    <title>لوحة تحكم البيانات | Arduino AI</title>
+    <title>لوحة التحكم - المقترحات</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="/">الرئيسية</a> | <a href="/about">عن المشروع</a> | 
-        <a href="/contact">اقترح فكرة</a> | <a href="/dashboard">لوحة التحكم</a>
-    </nav>
-
-    <h1>تحليل أداء الموقع 📊</h1>
-
-    <div class="dashboard-container">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>إجمالي الزيارات</h3>
-                <p id="total-visits">جاري التحميل...</p>
-            </div>
-            <div class="stat-card">
-                <h3>أكثر الأفكار طلباً</h3>
-                <p>نظام الري الذكي</p>
-            </div>
-        </div>
-
-        <div class="chart-container">
-            <h3>تفاعل المستخدمين خلال الأسبوع</h3>
-            <canvas id="myChart"></canvas>
-        </div>
-    </div>
-
-    <script>
-        // كود بسيط لعرض رسم بياني تجريبي
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس'],
-                datasets: [{
-                    label: 'عدد الزوار',
-                    data: [12, 19, 3, 5, 2],
-                    borderColor: 'rgb(75, 192, 192)',
-                }]
-            }
-        });
-    </script>
+    <h1>قائمة الاقتراحات المستلمة</h1>
+    <table border="1" style="width:100%; text-align:center;">
+        <tr>
+            <th>الاسم</th>
+            <th>البريد الإلكتروني</th>
+            <th>الفكرة</th>
+        </tr>
+        {% for row in suggestions %}
+        <tr>
+            <td>{{ row[1] }}</td> <td>{{ row[2] }}</td> <td>{{ row[3] }}</td> </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">العودة للرئيسية</a>
 </body>
 </html>
