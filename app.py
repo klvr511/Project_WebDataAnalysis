@@ -52,8 +52,8 @@ def submit():
             return "<h1>تم استلام فكرتك بنجاح! شكراً لك.</h1><a href='/'>العودة للرئيسية</a>"
         except Exception as e:
             return f"حدث خطأ أثناء حفظ البيانات: {e}"
-
 if __name__ == '__main__':
-    init_db()  
-   
-    app.run(debug=True)
+    init_db()
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
