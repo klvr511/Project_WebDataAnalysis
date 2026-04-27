@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عن المشروع | Arduino AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">الرئيسية</a> | <a href="/about">عن المشروع</a> | 
+        <a href="/contact">اقترح فكرة</a> | <a href="/dashboard">لوحة التحكم</a>
+    </nav>
+
+    <div class="container">
+        <h1>حول مبتكر الأردوينو الذكي 🤖</h1>
+        
+        <section class="about-section">
+            <h2>ما هو هذا المشروع؟</h2>
+            <p>هذا الموقع هو منصة تفاعلية تهدف إلى مساعدة الطلاب والمبتكرين في العثور على أفكار لمشاريع الأردوينو بناءً على مستواهم التقني والقطع الإلكترونية المتوفرة لديهم.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>الأهداف التقنية</h2>
+            <ul>
+                <li>تسهيل الوصول إلى أكواد الأردوينو الجاهزة وشرحها.</li>
+                <li>استخدام تقنيات الويب الحديثة (Flask, SQLite) لإدارة البيانات.</li>
+                <li>تحليل تفاعل المستخدمين لتحسين تجربة تصفح المشاريع التقنية.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>لماذا هذا الموقع؟</h2>
+            <p>تم تطوير هذا الموقع كجزء من مقرر "تحليل بيانات الويب" بجامعة أم القرى، حيث نهدف ليس فقط لبناء موقع وظيفي، بل لفهم سلوك الزوار وتحسين أداء المواقع بناءً على البيانات الحقيقية.</p>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

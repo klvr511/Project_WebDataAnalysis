@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مبتكر الأردوينو | الرئيسية</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">الرئيسية</a> | <a href="/about">عن المشروع</a> | 
+        <a href="/contact">اقترح فكرة</a> | <a href="/dashboard">لوحة التحكم</a>
+    </nav>
+    <h1>مولّد أفكار مشاريع أردوينو 🔥</h1>
+    <div class="generator-box">
+        <label>المستوى:</label>
+        <select id="level">
+            <option>مبتدئ</option>
+            <option selected>متوسط</option>
+            <option>متقدم</option>
+        </select>
+        <button onclick="generateIdea()">اعطني فكرة</button>
+        <div id="result" class="card"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
