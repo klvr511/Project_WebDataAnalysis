@@ -4,7 +4,8 @@ import os
 
 app = Flask(__name__)
 
-DB_URL = "postgresql://postgres:Meshary511%40@db.difpnyzysgndmabnpyod.supabase.co:6543/postgres?sslmode=require"
+# هذا هو الرابط الصحيح الذي يدعم IPv4 وسيحل مشكلة Network is unreachable
+DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary511%40@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require"
 
 def get_db_connection():
         
