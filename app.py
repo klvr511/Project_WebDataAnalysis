@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-# استخدم المنفذ 6543 بدلاً من 5432 لحل مشكلة IPv6 في Render
-DB_URL = "postgresql://postgres:Meshary511%40@db.difpnyzysgndmabnpyod.supabase.co:6543/postgres?sslmode=require&prepare_threshold=0"
+DB_URL = "postgresql://postgres:Meshary511%40@db.difpnyzysgndmabnpyod.supabase.co:6543/postgres?sslmode=require"
+def get_db_connection():
 conn = psycopg2.connect(DB_URL)
     return conn
 
