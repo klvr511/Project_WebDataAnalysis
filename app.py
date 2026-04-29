@@ -4,8 +4,7 @@ import os
 
 app = Flask(__name__)
 
-DB_URL = "postgresql://postgres:Meshary511%40@db.difpnyzysgndmabnpyod.supabase.co:5432/postgres"
-
+DB_URL = "postgresql://postgres:Meshary511%40@db.difpnyzysgndmabnpyod.supabase.co:5432/postgres?sslmode=disable"
 def get_db_connection():
     conn = psycopg2.connect(DB_URL)
     return conn
