@@ -4,9 +4,11 @@ import os
 
 app = Flask(__name__)
 
-# الرابط المحدث بكلمة المرور الجديدة واسم المستخدم الخاص بالـ Pooler
+# الرابط المحدث الذي يجمع بين الـ Pooler (لحفظ الشبكة) وكلمة المرور الجديدة
 DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary2026@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require"
+
 def get_db_connection():
+    # دالة للاتصال بقاعدة البيانات
     conn = psycopg2.connect(DB_URL)
     return conn
 
@@ -45,6 +47,7 @@ def submit():
         try:
             conn = get_db_connection()
             cur = conn.cursor()
+            # إدخال البيانات في جدول suggestions
             cur.execute('INSERT INTO suggestions (name, email, idea) VALUES (%s, %s, %s)',
                         (name, email, idea))
             conn.commit()
@@ -55,7 +58,6 @@ def submit():
             return f"حدث خطأ أثناء حفظ البيانات: {e}"
 
 if __name__ == '__main__':
-    # Render يطلب تشغيل التطبيق على المنفذ الذي يحدده هو
-    # وإلا سيعطيك خطأ "No open ports"
+    # هذا الجزء ضروري لعمل الموقع على سيرفر Render
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
