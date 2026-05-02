@@ -5,11 +5,10 @@ import os
 app = Flask(__name__)
 
 # الرابط المحدث بكلمة المرور الجديدة واسم المستخدم الخاص بالـ Pooler
-DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary2026@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require"def get_db_connection():
-        
-        conn = psycopg2.connect(DB_URL)    
-        
-        return conn
+DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary2026@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require"
+def get_db_connection():
+    conn = psycopg2.connect(DB_URL)
+    return conn
 
 @app.route('/')
 def index():
