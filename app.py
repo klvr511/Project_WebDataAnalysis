@@ -4,9 +4,8 @@ import os
 
 app = Flask(__name__)
 
-# هذا هو الرابط الصحيح الذي يدعم IPv4 وسيحل مشكلة Network is unreachable
+# تأكد من دمج اسم المستخدم مع معرف المشروع بالنقطة
 DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary511%40@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require"
-
 def get_db_connection():
         
         conn = psycopg2.connect(DB_URL)    
