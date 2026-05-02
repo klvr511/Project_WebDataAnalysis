@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # الرابط المحدث الذي يجمع بين الـ Pooler (لحفظ الشبكة) وكلمة المرور الجديدة
-DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary2026@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?sslmode=require"
+DB_URL = "postgresql://postgres.difpnyzysgndmabnpyod:Meshary511%40@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?sslmode=require"
 
 def get_db_connection():
     # دالة للاتصال بقاعدة البيانات
